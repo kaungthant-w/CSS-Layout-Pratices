@@ -1,0 +1,302 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, rgb(141, 139, 139) , rgb(173, 170, 170));
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2rem 1fr 1fr 1fr 1fr 1fr 2rem;
+    grid-template-rows: [empty-start] 1.5rem [empty-end pageTitle-start] 1fr [pageTitle-end navigation-start] 1fr [navigation-end introduction-start] 1fr [introduction-end mainArea-start] 2fr [mainArea-end footer-start] 1fr [footer-end];
+    gap: 2rem;
+}
+
+.Page-Title {
+    grid-column: 2/4;
+    grid-row: pageTitle-start / pageTitle-end;
+    /* background-color: #838080; */
+
+    color: rgb(245, 245, 245);
+    display: grid;
+    place-items: center;
+}
+
+
+.avatar {
+    /* Rounded border */
+    border-radius: 50%;
+    border: 2px solid #000;
+    height: 64px;
+    width: 64px;
+}
+
+.avatar__image {
+    /* Rounded border */
+    border-radius: 50%;
+
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+    float: left;
+
+}
+
+.Navigation {
+    grid-row: navigation-start / navigation-end ;
+    grid-column: 2/7;
+    background-color: hsl(60, 4%, 29%);
+
+    display: grid;
+    place-items: center start;
+    border-radius: 1.2rem;
+}
+
+.menu-links {
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2rem 0 0 5rem; */
+    margin: 3rem;
+}
+
+.menu-item {
+    list-style: none;
+}
+
+.menu-link {
+    padding-right: 2rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-link:hover {
+    color: #cfcccc;
+}
+
+.dropdown {
+    position: relative;
+    /* display: grid;
+    place-items: end; */
+}
+
+.menu {
+    cursor: pointer;
+    color: #fff;
+    padding: 3rem 5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+    display: none;
+    
+}
+
+.menu:hover {
+    color: #cfcccc;
+}
+
+/* Hide the dropdown's content by default */
+.dropdown__content {
+    display: none;
+
+    /* Position it right below the trigger element */
+    left: 0;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+
+    /* It should be on the top of other elements */
+    background-color: rgb(110, 105, 105);
+    z-index: 9999;
+
+    /* Size */
+    height: 200px;
+    width: 200px;
+    border-radius: 0.5rem;
+
+}
+
+.dropdown__content li {
+    font-size: 1.5rem;
+    list-style: none;
+    color: #000;
+    display: grid;
+    place-items:start;
+    margin-left: 6rem;
+}
+.dropdown__content a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Show the content when hover on the container */
+.dropdown:hover .dropdown__content {
+    display: block;
+}
+
+
+
+.Introduction {
+    grid-row: introduction-start / introduction-end ;
+    grid-column: 2/7;
+    background-color: hsl(60, 3%, 61%);
+
+    display: grid;
+    padding-left: 3rem;
+    place-items:center start;
+    border-radius: 1.2rem;
+
+    height: 5rem;
+    
+}
+
+.Main-Content-Area {
+    grid-row: mainArea-start / mainArea-end ;
+    grid-column: 2/5;
+    background-color: hsl(60, 3%, 21%);
+
+    display: grid;
+    place-items: center;
+    border-radius: 1.2rem;
+}
+
+.cards {
+    display: flex;
+
+    /* Put a card in the next row when previous cards take all width */
+    flex-wrap: wrap;
+
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.cards__item {
+    /* There will be 4 cards per row */
+    flex-basis: 25%;
+
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.card__link {
+    width: 12rem;
+    height: 12rem;
+    background-color: #fff;
+
+}
+
+.Sidebar {
+    grid-row: mainArea-start / mainArea-end ;
+    grid-column: 5/7;
+    background-color: hsl(60, 1%, 28%);
+
+    display: grid;
+    place-items: start center;
+    border-radius: 1.2rem;
+}
+
+.sidebar__content--1 {
+    border: 2px solid rgb(145, 135, 135);
+    padding: 6rem;
+    margin: 2rem auto;
+
+}
+.siberbar-left {
+    padding: 2rem;
+}
+
+.siberbar-left li {
+    list-style: none;
+    margin-bottom: 1.2rem;
+}
+
+.siberbar-left li a {
+    text-decoration: none;
+    color: #cfcccc;
+}
+
+.siberbar-left li a:hover {
+    color: #999b9c;
+}
+
+.sidebar__content--2 {
+    border: 2px solid #cfcccc;
+    padding: 6rem;
+    margin-bottom: 2rem;
+}
+.sidebar__right li {
+    margin-top: 0.6rem;
+    list-style: none;
+}
+
+
+.Footer {
+    grid-row: footer-start / footer-end ;
+
+    background-color: hsl(60, 1%, 36%);
+    grid-column: 1/8;
+
+    display: grid;
+    place-items: center;
+    /* border-radius: 1.2rem; */
+    padding: 2rem;
+    gap: 0;
+}
+
+
+/* media screen  */
+@media  screen and (max-width:780px) {
+
+    .container{
+        grid-template-rows: [empty-start] 1.5rem [empty-end pageTitle-start] 1fr [pageTitle-end navigation-start] 1fr [navigation-end introduction-start] 1fr [introduction-end mainArea-start] 2fr [mainArea-end sidebar-start] 1fr [sidebar-end footer-start] 1fr [footer-end];
+    }
+
+    .menu-links {
+    margin: 0;
+    }
+
+    .Main-Content-Area {
+        grid-column: 2/7;
+        background-color: hsl(60, 3%, 21%);
+    
+        display: grid;
+        place-items: center;
+        border-radius: 1.2rem;
+    }
+
+    .Sidebar {
+        grid-row: sidebar-start / sidebar-end ;
+        grid-column: 2/7;
+        background-color: hsl(60, 1%, 28%);
+    
+        display: grid;
+        place-items: start center;
+        border-radius: 1.2rem;
+    }
+
+    .menu-item {
+        display: none;
+    }
+    .menu {
+        display: block;
+    }
+    
+}

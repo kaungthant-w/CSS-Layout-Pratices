@@ -1,0 +1,32 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.columns {
+    
+    /* align-items: center; */
+    font-size: 3rem;
+    margin-top: 5rem;
+    gap: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.columns > * {
+    flex-basis: 40rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+    background-color: aquamarine;
+    height: 30rem;
+    
+}
